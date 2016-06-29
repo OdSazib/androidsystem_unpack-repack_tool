@@ -34,10 +34,6 @@ for pkg in $REQ; do
                          echo
                 else
         	           echo -e "\r\nSorry $pkg didn't install :(\r\n Bye bye...\r\n"
-        	                for i in {1..5}
-                              do
-                              echo "Bye $i times"
-                            done
         	           exit 0
                 fi
 
@@ -63,13 +59,13 @@ show(){
 show_menus() {
 	clear
 	# Get the system time
-      now="$(date +"%r")"
-    # Show main - menu, host name and time
-    show 3 5 "==================================================="
-    show 3 5 "= Android System Unpack-Repack Scripts for Ubuntu ="
-    show 3 5 "=-------------------------------------------------="
-    show 3 5 "=             writen by odsazib                   ="
-    show 3 5 "==================================================="
+         now="$(date +"%r")"
+        # Show main - menu, host name and time
+        show 3 5 "==================================================="
+        show 3 5 "= Android System Unpack-Repack Scripts for Ubuntu ="
+        show 3 5 "=-------------------------------------------------="
+        show 3 5 "=             writen by odsazib                   ="
+        show 3 5 "==================================================="
 	show 3 5 "       Main-Menu for $HOSTNAME - $now"
 	show 3 5 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 	show 3 5 "                1. Unpakc"
