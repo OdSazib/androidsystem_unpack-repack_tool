@@ -1,7 +1,7 @@
 automated scripts to use available binaries and codes to compress & decompress system.new.dat of android 5.0+ roms
 # Android System Unpack-Repack Tool For Ubuntu
 Android new compression is deeper than before and hence can not be decompressed in normal way or with traditional archive manager. From android 5.0+ android roms are two level compressed, normal ext4 raw.img and dat format. So things are not natively easy.
-Btw the ways are made by devlopers over years and using their scripts/tools differ from one to another. I found some complex ways to use prebuilt binary of make_ext4fs, rimg2sadt and sdat2img.py, So wrote scripts to automate the whole process within 3 commands, yes just 3 commands once you are being followed all instructions here. It's very easy to use rather than those long process and big commands.
+Btw the ways are made by devlopers over years and using their scripts/tools differ from one to another. I found some complex ways to use prebuilt binary of make_ext4fs, rimg2sadt and sdat2img.py, So wrote scripts to automate the whole process within only one command, yes just 1 command once you are being followed all instructions here. It's very easy to use rather than those long process and big commands.
 
 Thanks to: 
 ------------------------------------
