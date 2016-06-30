@@ -37,7 +37,10 @@ elif
                 exit 0
             fi
             sudo test -d ./output && rm -rf ./output; mkdir ./output
-            ./tools/make_ext4fs -T 0 -S ./input/file_contexts -l 2415919104 -a system my_new_system.img system/
+            BLOCK_SIZE="2415919104"
+                for system in $BLOCK_SIZE; do
+                ./tools/make_ext4fs -T 0 -S ./input/file_contexts -l $system -a system my_new_system.img system/
+            done
             echo ""
             echo -e "Created, Processing system.img...please wait...\r\n"
             mv ./my_new_system.img ./output/my_new_system.img
