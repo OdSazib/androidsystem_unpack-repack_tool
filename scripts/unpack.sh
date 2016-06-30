@@ -30,7 +30,7 @@ prompt_confirm "Press 'E' to extract, 'N' to keep system.img intact" || exit 0
 sudo mount -t ext4 -o loop system.img system_out/
 sudo test -d ./system && rm -rf ./system; mkdir ./system
 sudo cp -r ./system_out/. ./system/.
-sudo chown -R odsazib:odsazib ./system
+sudo chown -R $USER:$USER ./system
 sudo umount ./system_out
 rm -r ./system_out
 rm ./system.img
