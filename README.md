@@ -5,8 +5,9 @@ Btw the ways are made by devlopers over years and using their scripts/tools diff
 
 Thanks to: 
 ------------------------------------
-- xpirt, luxi78, howellzhu
+- xpirt, luxi78, howellzhu 
 - all github contributors
+- original xda thread:<br/>http://forum.xda-developers.com/android/software-hacking/how-to-conver-lollipop-dat-files-to-t2978952/
 
 =====================================
 #Instructions: (Follow step by step)
