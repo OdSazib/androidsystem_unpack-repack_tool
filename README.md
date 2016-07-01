@@ -5,7 +5,7 @@ Btw the ways are made by devlopers over years and using their scripts/tools diff
 
 Thanks to: 
 ------------------------------------
-- xpirt, luxi78, howellzhu for sdat2.img
+- xpirt, luxi78, howellzhu
 - all github contributors
 
 =====================================
