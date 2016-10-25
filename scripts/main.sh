@@ -62,7 +62,7 @@ show_menus() {
          now="$(date +"%r")"
         # Show main - menu, host name and time
         show 3 5 "==================================================="
-        show 3 5 "= Android System Unpack-Repack Scripts for Ubuntu ="
+        show 3 5 "= Android System Unpack-Repack Scripts for Linux  ="
         show 3 5 "=-------------------------------------------------="
         show 3 5 "=             writen by odsazib                   ="
         show 3 5 "==================================================="
