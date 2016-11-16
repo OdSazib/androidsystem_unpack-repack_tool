@@ -3,7 +3,7 @@
 #=             Author: OdSazib                          =
 #========================================================
 sudo echo
-if  sudo test -f ./output/system.img;
+if test -f ./output/system.img;
         then
             echo ""
             echo "sytem.img found instead of extracted system folder"
@@ -11,7 +11,7 @@ if  sudo test -f ./output/system.img;
             echo "Processing system.img...please wait..."
             echo ""
             cp ./tools/rimg2sdat ./output
-            sudo chmod +x ./output/rimg2sdat
+            chmod +x ./output/rimg2sdat
             cd output
             ./rimg2sdat system.img
             rm system.img
@@ -21,14 +21,14 @@ if  sudo test -f ./output/system.img;
             echo ""
             exit 0
 elif 
-    sudo test -d ./system;
+    test -d ./system;
         then
             echo ""
             echo "Extracted ./system folder found"
             echo ""
             echo "Making system.img from extracted systm folder...please wait..."
             echo ""
-            if sudo test -f ./input/file_contexts; 
+            if test -f ./input/file_contexts; 
                 then
                   echo
             else
@@ -36,25 +36,30 @@ elif
                 echo -e "Bye Bye...\r\n"
                 exit 0
             fi
-            sudo test -d ./output && rm -rf ./output; mkdir ./output
+            test -d ./output && rm -rf ./output; mkdir ./output
             BLOCK_SIZE="2415919104"
                 for system in $BLOCK_SIZE; do
                 ./tools/make_ext4fs -T 0 -S ./input/file_contexts -l $system -a system my_new_system.img system/
             done
+
             echo ""
-            echo -e "Created, Processing system.img...please wait...\r\n"
-            mv ./my_new_system.img ./output/my_new_system.img
-            rm -rf ./system
-            cp ./tools/rimg2sdat output
-            sudo chmod +x ./output/rimg2sdat
-            cd output
-            ./rimg2sdat my_new_system.img
-            rm my_new_system.img
-            rm rimg2sdat
-            echo -e "\r\nDone"
-            echo "Congrats!!! Look at ./output folder now"
-            echo ""
-            exit 0
+            echo -e "Hello! system.img has created!!\r\n"
+            echo -e "\r\nDo you want convert it to dat?"
+            
+            prompt_confirm() {
+                while true; do
+                    read -r -n 1 -p "${1:-Continue?} [Y/N]: " REPLY
+                    case $REPLY in
+                        [yY]) echo -e "\r\n\r\nProcessing....." && ./scripts/makedat.sh; return 0 ;;
+                        [nN])  mv ./my_new_system.img ./output/system.img && rm -rf ./system; echo -e "\r\nOK! sysetm.img is placed to /output and to make it dat enter 3 from main menu\r\n"; return 0 ;;
+                        *) printf " \033[31m %s \n\033[0m" "invalid input"
+                        esac 
+                    done  
+                }
+                prompt_confirm "Press 'Y' to make system.new.dat, 'N' to keep system.img intact" || exit 0
+                echo
+
+            
 else
 	echo -e "\r\nSorry! Nothing found for processing\r\nBye Bye...\r\n"
 	exit 0

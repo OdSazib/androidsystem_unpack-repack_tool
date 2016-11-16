@@ -33,9 +33,9 @@ Once you started using this everything seems super easy, right? :D
 
 NOTICES:
 --------
+- Read dummy README.mkdn file from input folder, must do it.
 - At step 5 script will make your system ready, keep your pc connected to internet. When finished, you will get a menu to unpack, repack and get exit. Use them 
 - While unpacking, you will be promted if wish to keep system.img or even extract all files of system folder. Fortunately you can get both by your choice. But at a time you should keep either system.img or it's extracted file. I declared in script what you actually want.
-- If you did extract you can modify system files, btw by entering 2, you will repack both your extracted system folder and unextracted system.img, Cool right?
 - If your rom doesn't boot or flashing doesn't finish, Open repack.sh and change the numeric value from this line is shown bellow:<br/>
    BLOCK_SIZE="2415919104" <br/>
    It's system partition block size, mine is 2415919104. You should find it in your device tree BoardConfig.mk, in this line "BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2415919104" <br/>(It's necessary only if your devices doesn't boot with my block size)

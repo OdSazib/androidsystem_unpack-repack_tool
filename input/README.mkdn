@@ -1,0 +1,12 @@
+You must read before you start
+###############################
+
+Place your following files here
+--------------------------------
+  *file_contexts
+  *system.new.dat
+  *system.transfer.list
+
+working with only system.img? Read this
+----------------------------------------
+If you want to extract only system.img, no need of all input files. just place your system.img to /output folder(Create yourself). But you will need file_context in /input folder if you want to repack it as system.img after extracting. if you want dat, add file system.transfer.list from same rom.

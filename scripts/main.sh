@@ -38,7 +38,7 @@ for pkg in $REQ; do
                 fi
 
         echo -e "\r\n                ----Let's work-----\r\n\r\n\r\n===================== Welcome =====================\r\n"
-        sleep 3
+        sleep 2
     fi
 done
 
@@ -60,17 +60,36 @@ show_menus() {
 	clear
 	# Get the system time
          now="$(date +"%r")"
+         # Specify colors utilized in the terminal
+         normal='tput sgr0'              # White
+         red='tput setaf 1'              # Red
+         green='tput setaf 2'            # Green
+         yellow='tput setaf 3'           # Yellow
+         blue='tput setaf 4'             # Blue
+         violet='tput setaf 5'           # Violet
+         cyan='tput setaf 6'             # Cyan
+         white='tput setaf 7'            # White
+         txtbld=$(tput bold)             # Bold
+         bldred=${txtbld}$(tput setaf 1) # Bold Red
+         bldgrn=${txtbld}$(tput setaf 2) # Bold Green
+         bldblu=${txtbld}$(tput setaf 4) # Bold Blue
+         bldvlt=${txtbld}$(tput setaf 5) # Bold Violet
+         bldcya=${txtbld}$(tput setaf 6) # Bold Cyan
+         bldwht=${txtbld}$(tput setaf 7) # Bold White
         # Show main - menu, host name and time
-        show 3 5 "==================================================="
-        show 3 5 "= Android System Unpack-Repack Scripts for Linux  ="
-        show 3 5 "=-------------------------------------------------="
-        show 3 5 "=             writen by odsazib                   ="
-        show 3 5 "==================================================="
-	show 3 5 "       Main-Menu for $HOSTNAME - $now"
-	show 3 5 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	show 3 5 "                1. Unpakc"
-	show 3 5 "                2. Repack"
-	show 3 5 "                3. Exit"
+        show 3 5 "        ${bldred}============================================================="
+        show 3 5 "        ${bldred}=${bldgrn}      Android System Unpack-Repack Scripts for Linux       ${bldred}="
+        show 3 5 "        ${bldred}=${bldvlt}-----------------------------------------------------------${bldred}="
+        show 3 5 "        ${bldred}=${bldgrn}                    writen by odsazib                      ${bldred}="
+        show 3 5 "        ${bldred}=${bldvlt}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${bldred}="
+	    show 3 5 "        ${bldred}=${bldgrn}            Main-Menu for $HOSTNAME - $now            ${bldred}="
+	    show 3 5 "        ${bldred}=${bldvlt}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${bldred}="
+	    show 3 5 "        ${bldred}=${bldblu}               1. Unpack Dat File                          ${bldred}="
+        show 3 5 "        ${bldred}=${bldblu}               2. Unpack Image File                        ${bldred}="
+	    show 3 5 "        ${bldred}=${bldblu}               3. Repack                                   ${bldred}="
+	    show 3 5 "        ${bldred}=${bldblu}               4.${bldred} Exit                                     ${bldred}="
+        show 3 5 "        ${bldred}=                                                           ="
+        show 3 5 "        ${bldred}============================================================="
 }
 # read input from the keyboard and take a action
 # decompress system.new.dat when the user select 1 from the menu option.
@@ -78,11 +97,12 @@ show_menus() {
 # Exit the user when user select 3 form the menu option.
 read_options(){
 	local choice
-	read -p "        Enter choice [ 1 - 3]: " choice
+	read -p "${bldcya}        Enter choice [1-4] : ${bldblu}" choice
 	case $choice in
 		1) ./scripts/unpack.sh ;;
-		2) ./scripts/repack.sh ;;
-		3) exit 0;;
+        2) ./scripts/imageonly.sh ;;
+		3) ./scripts/repack.sh ;;
+		4) echo -e "\r\n"; exit 0;;
 		*) printf " \033[31m %s \n\033[0m" "Invalid input" && sleep 1
 	esac
 }
